@@ -3,70 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>To My Love</title>
+  <title>Dearest, Marie </title>
   <style>
     body {
       margin: 0;
       padding: 0;
       background: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100vh;
+      overflow: hidden;
       color: white;
       text-align: center;
-      overflow-x: hidden;
-    }
-
-    .heart {
-      width: 100px;
-      height: 90px;
-      position: relative;
-      margin-top: 50px;
-      animation: pulse 1s infinite;
-    }
-
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 100px;
-      height: 90px;
-      border-radius: 50%;
-      background: #ff4b5c;
-    }
-
-    .heart::before {
-      left: 50px;
-    }
-
-    .heart::after {
-      left: 0;
-      transform: rotate(-45deg);
-      transform-origin: right bottom;
-    }
-
-    .heart {
-      transform: rotate(-45deg);
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1) rotate(-45deg); }
-      50% { transform: scale(1.1) rotate(-45deg); }
-      100% { transform: scale(1) rotate(-45deg); }
     }
 
     h1 {
       font-size: 2.5rem;
-      margin: 20px 0;
+      margin-top: 20px;
     }
 
     .typewriter {
       max-width: 90%;
       font-size: 1.2rem;
+      margin: 20px auto;
       white-space: pre-wrap;
       border-right: 2px solid white;
       overflow: hidden;
@@ -85,7 +42,6 @@
 
     .slideshow {
       margin-top: 30px;
-      max-width: 90%;
     }
 
     .slideshow img {
@@ -104,30 +60,109 @@
     audio {
       margin-top: 30px;
     }
+
+    #real-heart {
+      animation: beat 1s infinite ease-in-out;
+      margin-top: 40px;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    #real-heart:hover path {
+      fill: #ff99aa;
+    }
+
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      font-size: 20px;
+      animation: floatUp 8s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: rgba(255, 255, 255, 0.9);
+      color: #ff4b5c;
+      padding: 20px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      font-size: 1.2rem;
+      text-align: center;
+      transition: transform 0.5s ease;
+      z-index: 99;
+    }
+
+    .popup.show {
+      transform: translate(-50%, -50%) scale(1);
+    }
   </style>
 </head>
 <body>
-  <div class="heart"></div>
+
+  <!-- Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Heart SVG -->
+  <svg id="real-heart" viewBox="0 0 512 512" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#ff4b5c" d="M471.7 73.3c-54.5-46.4-136-38.7-186.1 13.3L256 116.2l-29.6-29.6C176.4 34.6 94.9 26.9 40.3 73.3c-62.6 53.2-66.1 149.8-9.9 207.1l193.5 199.8c12.5 12.9 32.7 12.9 45.2 0L481.6 280.4c56.2-57.3 52.7-153.9-9.9-207.1z"/>
+  </svg>
+
   <h1>To My One and Only</h1>
 
+  <!-- Love letter -->
   <div class="typewriter">
-    I made this little page just for you.  
-    You're my favorite person.  
-    My peace, my chaos, my everything.  
-    I hope this makes you smile the way you make me smile every day.  
-    I love you—today, tomorrow, and forever.
+    Love, you’re definitely the best thing that’s happened to me this year and maybe ever.
+
+We joke about being perfect, but I’m starting to think… we might actually be onto something. Lyk if there was a queen of everything, it’d be you. And your laugh? Instant serotonin, the kind that could make any bad day feel like wao bigla akong sumakses ganon, eme! Hahahahhahahhah and your voice bebe? That’s straight up oxytocin, making me feel things I shouldn’t be feeling (tinigasan) 😣
+
+You're like the perfect combination of sunshine and coffee coz you light up my day, and you keep me going! I’m so lucky to have you, I don’t do promises but I can guarantee I’ll try my best to never mess this up.
+
+So I’ve been thinking. I don’t want to just call this "something" I want to call it US. I want to look at you and know you’re mine, and you know you’ve got me fully, officially, no in-between.
   </div>
 
+  <!-- Slideshow -->
   <div class="slideshow">
     <img id="slideshow-img" src="https://via.placeholder.com/300x200.png?text=Your+Photo+1" alt="Memories">
   </div>
 
+  <!-- Music -->
   <audio autoplay loop controls>
     <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
   </audio>
 
+  <!-- Surprise popup -->
+  <div id="popup" class="popup">
+    P.S. I love you more than I love Jollibee spaghetti 🍝💖
+  </div>
+
   <script>
+    // Slideshow
     const images = [
       "https://via.placeholder.com/300x200.png?text=Your+Photo+1",
       "https://via.placeholder.com/300x200.png?text=Your+Photo+2",
@@ -140,7 +175,31 @@
     setInterval(() => {
       index = (index + 1) % images.length;
       imgElement.src = images[index];
-    }, 3000); // change every 3 seconds
+    }, 3000);
+
+    // Surprise popup
+    setTimeout(() => {
+      document.getElementById("popup").classList.add("show");
+    }, 6000);
+
+    // Particle Generator
+    const particleContainer = document.getElementById('particles');
+    const emojis = ['💖','🌟','💫','💕','🌙','✨'];
+
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.fontSize = (Math.random() * 15 + 15) + 'px';
+      particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      particleContainer.appendChild(particle);
+
+      setTimeout(() => particle.remove(), 10000);
+    }
+
+    setInterval(createParticle, 200);
   </script>
+
 </body>
 </html>
