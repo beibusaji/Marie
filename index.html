@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To My Love</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      position: relative;
+      margin-top: 50px;
+      animation: pulse 1s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 90px;
+      border-radius: 50%;
+      background: #ff4b5c;
+    }
+
+    .heart::before {
+      left: 50px;
+    }
+
+    .heart::after {
+      left: 0;
+      transform: rotate(-45deg);
+      transform-origin: right bottom;
+    }
+
+    .heart {
+      transform: rotate(-45deg);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1) rotate(-45deg); }
+      50% { transform: scale(1.1) rotate(-45deg); }
+      100% { transform: scale(1) rotate(-45deg); }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 20px 0;
+    }
+
+    .typewriter {
+      max-width: 90%;
+      font-size: 1.2rem;
+      white-space: pre-wrap;
+      border-right: 2px solid white;
+      overflow: hidden;
+      animation: typing 5s steps(60, end), blink 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: white; }
+    }
+
+    .slideshow {
+      margin-top: 30px;
+      max-width: 90%;
+    }
+
+    .slideshow img {
+      width: 300px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      animation: fadein 2s ease-in-out;
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    audio {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="heart"></div>
+  <h1>To My One and Only</h1>
+
+  <div class="typewriter">
+    I made this little page just for you.  
+    You're my favorite person.  
+    My peace, my chaos, my everything.  
+    I hope this makes you smile the way you make me smile every day.  
+    I love you—today, tomorrow, and forever.
+  </div>
+
+  <div class="slideshow">
+    <img id="slideshow-img" src="https://via.placeholder.com/300x200.png?text=Your+Photo+1" alt="Memories">
+  </div>
+
+  <audio autoplay loop controls>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const images = [
+      "https://via.placeholder.com/300x200.png?text=Your+Photo+1",
+      "https://via.placeholder.com/300x200.png?text=Your+Photo+2",
+      "https://via.placeholder.com/300x200.png?text=Your+Photo+3"
+    ];
+
+    let index = 0;
+    const imgElement = document.getElementById("slideshow-img");
+
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      imgElement.src = images[index];
+    }, 3000); // change every 3 seconds
+  </script>
+</body>
+</html>
