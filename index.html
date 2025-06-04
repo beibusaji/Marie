@@ -3,31 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dearest, Marie </title>
+  <title>Dearest, Marie</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       background: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow: hidden;
-      color: white;
+      color: black;
       text-align: center;
+      overflow-x: hidden;
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-top: 20px;
+      margin-top: 30px;
+      color: white;
     }
 
     .typewriter {
       max-width: 90%;
       font-size: 1.2rem;
       margin: 20px auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      color: #333;
       white-space: pre-wrap;
-      border-right: 2px solid white;
       overflow: hidden;
-      animation: typing 5s steps(60, end), blink 0.7s step-end infinite;
+      border-left: 3px solid #ff4b5c;
+      animation: typing 5s steps(60, end);
     }
 
     @keyframes typing {
@@ -35,13 +40,8 @@
       to { width: 100%; }
     }
 
-    @keyframes blink {
-      from, to { border-color: transparent; }
-      50% { border-color: white; }
-    }
-
     .slideshow {
-      margin-top: 30px;
+      margin: 40px 0;
     }
 
     .slideshow img {
@@ -58,12 +58,13 @@
     }
 
     audio {
-      margin-top: 30px;
+      margin: 30px auto;
+      display: block;
     }
 
     #real-heart {
       animation: beat 1s infinite ease-in-out;
-      margin-top: 40px;
+      margin: 40px auto 20px;
     }
 
     @keyframes beat {
@@ -104,22 +105,22 @@
 
     .popup {
       position: fixed;
-      top: 50%;
+      bottom: 20px;
       left: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      background: rgba(255, 255, 255, 0.9);
+      transform: translateX(-50%) scale(0);
+      background: #fff;
       color: #ff4b5c;
-      padding: 20px 30px;
+      padding: 15px 25px;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      font-size: 1.2rem;
+      font-size: 1rem;
       text-align: center;
       transition: transform 0.5s ease;
-      z-index: 99;
+      z-index: 10;
     }
 
     .popup.show {
-      transform: translate(-50%, -50%) scale(1);
+      transform: translateX(-50%) scale(1);
     }
   </style>
 </head>
@@ -137,7 +138,7 @@
 
   <!-- Love letter -->
   <div class="typewriter">
-    Love, you’re definitely the best thing that’s happened to me this year and maybe ever.
+Love, you’re definitely the best thing that’s happened to me this year and maybe ever.
 
 We joke about being perfect, but I’m starting to think… we might actually be onto something. Lyk if there was a queen of everything, it’d be you. And your laugh? Instant serotonin, the kind that could make any bad day feel like wao bigla akong sumakses ganon, eme! Hahahahhahahhah and your voice bebe? That’s straight up oxytocin, making me feel things I shouldn’t be feeling (tinigasan) 😣
 
@@ -158,7 +159,7 @@ So I’ve been thinking. I don’t want to just call this "something" I want to 
 
   <!-- Surprise popup -->
   <div id="popup" class="popup">
-   ILY💖
+    💘 ILY more than extra rice and free shipping 😚
   </div>
 
   <script>
